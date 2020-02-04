@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 刷新调用微信Token缓存 -->
+	<bean id="wechatCacheRefreshJob" class="com.dxr.comm.quartz.WechatCacheRefreshJob"></bean>
+	
+	<!-- job的配置开始 -->
+	<bean id="wcrJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="wechatCacheRefreshJob" />
+			<!-- <list> 这里可以配置N个调度任务 <ref bean="...."/> </list> -->
+		</property>
+		<property name="targetMethod">
+			<value>refreshCacheTask</value>
+		</property>
+		<!-- 是否并发  -->  
+        <!-- <property name ="concurrent" value ="false"  /> --> 
+	</bean>
+	<!-- job的配置结束 -->
+
+	<!-- 触发器：定义触发规则 /周期 --> 
+	<bean id="wcrJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="wcrJobDetail"></property>
+		<!-- 2小时执行一次 -->
+		<!-- 0 0 */2 * * ? -->
+		<property name="cronExpression" value="0 0 */2 * * ?"></property>
+		<!-- 延迟启动 -->
+		<!-- <property name="startDelay" value="5000"></property>   -->
+	</bean>
+	
+	<!-- 超过6天未审核提醒任务 -->
+	<bean id="verifyToDoReminderNoticeJob" class="com.dxr.comm.quartz.VerifyToDoReminderNoticeJob"></bean>
+	
+	<!-- job的配置开始 -->
+	<bean id="tdrnJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="verifyToDoReminderNoticeJob" />
+		</property>
+		<property name="targetMethod">
+			<value>reminderNotice</value>
+		</property>
+	</bean>
+	<!-- job的配置结束 -->
+
+	<!-- 触发器：定义触发规则 /周期 --> 
+	<bean id="tdrnJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="tdrnJobDetail"></property>
+		<!-- 每周五10点执行 -->
+		<!-- 0 0 10 ? * 6 -->
+		<!-- 每天10点执行 -->
+		<property name="cronExpression" value="0 0 10 ? * *"></property>
+		<!-- <property name="cronExpression" value="0 */5 * * * ?"></property> -->
+	</bean>
+	
+
+	<!-- 容器：将触发器注册进来 -->
+	<bean id="schedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="wcrJobTrigger" />
+				<ref bean="tdrnJobTrigger"/>
+			</list>
+		</property>
+	</bean>
+
+</beans>

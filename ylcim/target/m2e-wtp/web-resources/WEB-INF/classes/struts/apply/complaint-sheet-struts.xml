@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.ComplaintSheetAction" extends="basePackage">
+        <action name="complaintSheetAction" class="com/dxr/apply/complaintSheetAction">
+        	<result name="index">/view/console/module/apply/complaint/complaint.jsp</result>
+        	<result name="formView">/view/console/module/apply/complaint/form.jsp</result>
+        	<result name="verify">/view/console/module/apply/complaint/verify.jsp</result>
+        	<result name="verifyFormView">/view/console/module/apply/complaint/verifyform.jsp</result>
+        	<result name="handle">/view/console/module/apply/complaint/handle.jsp</result>
+        	<result name="history">/view/console/module/apply/complaint/history.jsp</result>
+        </action>
+    </package>
+
+</struts>

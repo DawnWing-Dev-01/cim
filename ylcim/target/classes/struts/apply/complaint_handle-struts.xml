@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.ComplaintHandleAction" extends="basePackage">
+        <action name="handleAction" class="com/dxr/apply/handleAction">
+        	<result name="formView">/view/console/module/apply/complaint/handleform.jsp</result>
+        	<result name="handleGridView">/view/console/module/apply/complaint/handleGrid.jsp</result>
+        </action>
+    </package>
+
+</struts>

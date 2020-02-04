@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean name="com/dxr/webui/wechatAction" class="com.dxr.webui.wechat.action.WeChatAction" scope="prototype"></bean>
+	
+	<bean id="weChatMgr" class="com.dxr.webui.wechat.service.impl.WeChatMgr">
+		<property name="wechatAppId" value="${wechat.cfg.appid}"></property>
+		<property name="wechatAppSecret" value="${wechat.cfg.appsecret}"></property>
+		<property name="accessTokenApiUrl" value="${wechat.api.accessToken.url}"></property>
+		<property name="jsApiTicketApiUrl" value="${wechat.api.jsapiTicket.url}"></property>
+		<property name="wechatCfgDebug" value="${wechat.cfg.debug}"></property>
+		<property name="wechatCfgJsApiList" value="${wechat.cfg.jsApiList}"></property>
+		<property name="hideMenuArray" value="${wechat.cfg.hideMenuArray}"></property>
+		<property name="baiduMapKey" value="${wechat.cfg.baiduMap.key}"></property>
+		<property name="authorizeCodeApiUrl" value="${wechat.api.authorize.code.url}"></property>
+		<property name="authorizeAccessTokenApiUrl" value="${wechat.api.authorize.accessToken.url}"></property>
+		<property name="authorizeRefreshTokenApiUrl" value="${wechat.api.authorize.refreshToken.url}"></property>
+		<property name="authorizeUserInfoApiUrl" value="${wechat.api.authorize.userinfo.url}"></property>
+		<property name="authorizeCheckTokenApiUrl" value="${wechat.api.authorize.checkToken.url}"></property>
+		<property name="userListUrl" value="${wechat.api.user.list.url}"></property>
+		<property name="userInfoUrl" value="${wechat.api.user.info.url}"></property>
+	</bean>
+	
+	<bean id="wechatTokenCache" class="com.dxr.webui.wechat.tools.WechatTokenCache">
+		<property name="wechatEhcacheToken" value="${wechat.ehcache.token}"></property>
+	</bean>
+	
+	<bean id="templateMgr" class="com.dxr.webui.wechat.service.impl.TemplateMgr">
+		<property name="templateMsgSendUrl" value="${wechat.api.template.msg.send.url}"></property>
+	</bean>
+	
+</beans>

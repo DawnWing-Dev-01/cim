@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="roleAction" extends="basePackage">
+        <action name="roleAction" class="com/dxr/system/roleAction">
+        	<result name="index">/view/console/module/system/role/role.jsp</result>
+        	<result name="formView">/view/console/module/system/role/form.jsp</result>
+        	<result name="authorize">/view/console/module/system/role/authorize.jsp</result>
+        	<result name="chooseView">/view/console/module/system/role/choose.jsp</result>
+        </action>
+    </package>
+
+</struts>

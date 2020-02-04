@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.cms.action.ArticleAction" extends="basePackage">
+        <action name="articleAction" class="com/dxr/cms/articleAction">
+        	<result name="index">/view/console/module/cms/article/article.jsp</result>
+        	<result name="formView">/view/console/module/cms/article/form.jsp</result>
+        	<result name="showIphone">/view/console/module/cms/article/iphone.jsp</result>
+        </action>
+    </package>
+
+</struts>

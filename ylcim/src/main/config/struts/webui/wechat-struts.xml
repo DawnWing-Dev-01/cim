@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="com.dxr.webui.action.WeChatAction" extends="wechat">
+        <action name="wechatAction" class="com/dxr/webui/wechatAction">
+        	<result name="enterView">/view/webui/wechat/dishonesty/wechatentry.jsp</result>
+        	<result name="queryView">/view/webui/wechat/dishonesty/wechatquery.jsp</result>
+        	<result name="showQueryView">/view/webui/wechat/dealerCredit/showQuery.jsp</result>
+        	<result name="helperView">/view/webui/wechat/consumer/helper.jsp</result>
+        	<result name="earlyWarningView">/view/webui/wechat/industry/earlywarning.jsp</result>
+        	<result name="articleListView">/view/webui/wechat/article/articlelist.jsp</result>
+        	<result name="showArticleView">/view/webui/wechat/article/showArticle.jsp</result>
+        	<result name="scheduleView">/view/webui/wechat/schedule/scheduleView.jsp</result>
+        	<result name="subscribeGuideView">/view/webui/wechat/subscribe/bootstep.jsp</result>
+        </action>
+    </package>
+
+</struts>

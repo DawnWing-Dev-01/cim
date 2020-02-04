@@ -1,0 +1,45 @@
+/* body { background: #efefef;} */
+.superloginA {background: url(../images/bg_logina.jpg) center 0 no-repeat #313541; min-width: 1000px; height: 450px;}
+.superlogin {background: url(../images/bg_login.jpg) center 0 no-repeat #f23e47; min-width: 1000px; height: 450px;}
+.superloginB {background: url(../images/login_bg.png) center center no-repeat; width: 100%;height: 100%; position: fixed; top: 0px; left: 0px;}
+/* .loginBox { margin-top: -307px;} */
+.loginBox .logo { width: 320px; margin: 0 auto; overflow: hidden;}
+.loginBox .logo > div{ float: left; color: #FFF;}
+.loginBox .logo .logo_img{ width: 70px;}
+.loginBox .logo .logo_sysname{ width: 250px;}
+.loginBox .logo .logo_sys label{ font-size: 20px;line-height: 30px;}
+.loginBox .logo .logo_sys small{ line-height: 30px; display: block;}
+.loginMain { width: 418px;height: 318px;position: absolute;left: 50%;top: 50%;margin-top: -120px;}
+.loginMain .tabwrap { padding: 20px 40px;}
+.loginMain .tabwrap ._diy_table{border-width: 0px; border-collapse: 0px; border-spacing: 0px;}
+.loginMain .tabwrap ._diy_table .formbtn{text-align: center;}
+.loginMain .tabwrap ._diy_table .formbtn input:focus { outline:none; }
+.loginMain .tabwrap td { vertical-align: middle;}
+.loginMain .tabwrap td .txt { width: 242px; height: 35px; text-indent: 10px; border: 1px solid #cdcdcd; margin: 13px 0;}
+.loginMain .tabwrap td .txt2 { float: left; width: 112px;}
+.loginMain .tabwrap td span.yzm { float: left; display: inline-block; width: 110px; height: 35px; overflow: hidden; margin: 13px 0 0 20px; cursor: pointer;}
+.loginMain .tabwrap td.title { font-size: 16px; color: #454545; line-height: 50px;}
+.loginMain .tabwrap tr.errortd td { padding: 0 0 21px;}
+.loginMain .tabwrap td i.ico-error { display: block; float: left; width: 18px; height: 17px; background: url(../images/ico_wrong.png) no-repeat; margin-right: 9px; position: relative; top: 2px;}
+.loginMain .tabwrap td span.errorword { color: #e8000c; line-height: 18px;}
+.loginMain .tabwrap td input[type="reset"],input[type="submit"] { width: 102px; height: 42px; color: #fff; font-size: 16px; border-radius: 2px;}
+.loginMain .tabwrap td input.loginbtn { background: #00B38B;}
+.loginMain .tabwrap td input.resetbtn { background: #999999; margin-left: 46px; }
+.loginMain .tabwrap td input[type="reset"],input[type="submit"] { opacity: 0.9;}
+.loginMain .tabwrap td.forgetpsw { padding-top: 20px; text-align: right;}
+.loginMain .tabwrap td.forgetpsw a { color: #666;}
+.loginMain .tabwrap td.forgetpsw a:hover { color: #fa5d5c;}
+.footer { width: 100%; text-align: center; color: #8f8f8f; font-family: simsun; position: fixed; bottom: 10px; left: 0px;}
+/*忘记密码*/
+.resetpsw { width: 180px; height: 49px; background: rgba(255,255,255,0.23); -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#77000000', endColorstr='#77000000')"; color: #fff; font-size: 28px; text-align: center; line-height: 49px; border-radius: 24px; -moz-border-radius: 24px; -webkit-border-radius: 24px; margin: 0 auto;}
+.stepBar { width: 516px; margin: 82px auto 0; position: relative;}
+.loginMain2 { background: none; margin-top: 120px;}
+.loginMain2 .tabwrap { padding: 25px 15px;}
+.loginMain2 .tabwrap td.title2 { font-size: 16px; color: #454545;}
+.pswfilish { text-align: center; margin: 120px auto 190px;}
+.pswfilish p { font-size: 16px; text-align: center; line-height: 120px; color: #454545;}
+.pswfilish .btn { text-align: center;}
+.pswfilish .btn input[type=button] { width: 102px; height: 42px; color: #fff; font-size: 16px; border-radius: 2px;}
+.pswfilish .btn input.loginbtn { background: #00B38B;}
+.pswfilish .btn input.resetbtn { background: #999999; margin-left: 46px; }
+.pswfilish .btn input[type=button]:hover { opacity: 0.9;}

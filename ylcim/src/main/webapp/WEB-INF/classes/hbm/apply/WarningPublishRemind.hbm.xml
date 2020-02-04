@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.WarningPublishRemind" table="APPLY_PUBLISH_REMIND">
+			<cache usage="nonstrict-read-write"/>
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="name" type="java.lang.String">
+				<column name="NAME" length="100" />
+			</property>
+			
+			<property name="industryId" type="java.lang.String">
+				<column name="INDUSTRY_ID" length="32" />
+			</property>
+			
+			<property name="industryName" type="java.lang.String">
+				<column name="INDUSTRY_NAME" length="100"/>
+			</property>
+			
+			<property name="threshold" type="java.lang.Integer">
+				<column name="THRESHOLD"/>
+			</property>
+			
+			<property name="complaintTotal" type="java.lang.Integer">
+				<column name="COMPLAINT_TOTAL"/>
+			</property>
+			
+			<property name="yearNum" type="java.lang.Integer">
+				<column name="YEAR_NUM"/>
+			</property>
+			
+			<property name="monthNum" type="java.lang.Integer">
+				<column name="MONTH_NUM"/>
+			</property>
+			
+			<property name="showType" type="java.lang.Integer">
+				<column name="SHOW_TYPE"/>
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+		</class>
+	</hibernate-mapping>

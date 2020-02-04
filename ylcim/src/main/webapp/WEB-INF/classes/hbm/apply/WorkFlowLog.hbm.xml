@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.WorkFlowLog" table="APPLY_FLOW_LOG">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="flowExampleId" type="java.lang.String">
+				<column name="FLOW_EXAMPLE_ID" length="32" />
+			</property>
+			
+			<property name="flowNodeId" type="java.lang.String">
+				<column name="FLOW_NODE_ID" length="32" />
+			</property>
+			
+			<property name="flowNodeText" type="java.lang.String">
+				<column name="FLOW_NODE_TEXT" length="50" />
+			</property>
+			
+			<property name="handleUserId" type="java.lang.String">
+				<column name="HANDLE_USER_ID" length="32" />
+			</property>
+			
+			<property name="handleUserName" type="java.lang.String">
+				<column name="HANDLE_USER_NAME" length="50" />
+			</property>
+			
+			<property name="handleResult" type="java.lang.Integer">
+				<column name="HANDLE_RESULT" />
+			</property>
+			
+			<property name="handleSay" type="java.lang.String">
+				<column name="HANDLE_SAY" length="1024" />
+			</property>
+			
+			<property name="handleDate" type="java.util.Date">
+				<column name="HANDLE_DATE" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+		</class>
+	</hibernate-mapping>

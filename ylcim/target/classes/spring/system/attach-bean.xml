@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean name="com/dxr/system/attachAction" class="com.dxr.system.action.AttachAction" scope="prototype"></bean>
+	
+	<bean id="attachMgr" class="com.dxr.system.service.impl.AttachMgr">
+		<property name="uploadAttachDir" value="${upload.attachFile.dir}"></property>
+		<property name="uploadImageAllowSuffix" value="${upload.image.allowSuffix}"></property>
+		<property name="uploadFlashAllowSuffix" value="${upload.flash.allowSuffix}"></property>
+		<property name="uploadMediaAllowSuffix" value="${upload.media.allowSuffix}"></property>
+		<property name="uploadFilesAllowSuffix" value="${upload.files.allowSuffix}"></property>
+		<property name="uploadOtherAllowSuffix" value="${upload.other.allowSuffix}"></property>
+	</bean>
+	
+	<bean id="attachDao" class="com.dxr.system.dao.AttachDao"></bean>
+</beans>

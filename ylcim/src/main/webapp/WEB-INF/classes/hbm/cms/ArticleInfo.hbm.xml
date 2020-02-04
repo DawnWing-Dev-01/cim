@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.cms.entity.ArticleInfo" table="CMS_ARTICLE">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="name" type="java.lang.String">
+				<column name="NAME" length="100" />
+			</property>
+			
+			<property name="columnId" type="java.lang.String">
+				<column name="COLUMN_ID" length="32" />
+			</property>
+			
+			<property name="articleFrom" type="java.lang.String">
+				<column name="ARTICLE_FROM" length="50" />
+			</property>
+			
+			<property name="articleType" type="java.lang.String">
+				<column name="ARTICLE_TYPE" length="20" />
+			</property>
+			
+			<property name="author" type="java.lang.String">
+				<column name="AUTHOR" length="20" />
+			</property>
+			
+			<property name="authorId" type="java.lang.String">
+				<column name="AUTHOR_ID" length="32" />
+			</property>
+			
+			<property name="deliveryDate" type="java.util.Date">
+				<column name="DELIVERY_DATE" />
+			</property>
+			
+			<property name="searchIndex" type="java.lang.String">
+				<column name="SEARCH_INDEX" length="100" />
+			</property>
+			
+			<property name="summary" type="java.lang.String">
+				<column name="SUMMARY" length="512" />
+			</property>
+	        
+			<property name="content" type="java.lang.String">
+				<column name="CONTENT" length="1024" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+		</class>
+	</hibernate-mapping>

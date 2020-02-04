@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.system.entity.SysSeqMax" table="SYS_SEQ_MAX">
+			<id name="seqId" type="java.lang.String">
+				<column name="SEQ_ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="maxNo" type="java.lang.Integer">
+				<column name="MAX_NO" />
+			</property>
+			
+			<property name="lastDate" type="java.util.Date">
+				<column name="LAST_DATE" />
+			</property>
+			
+		</class>
+	</hibernate-mapping>

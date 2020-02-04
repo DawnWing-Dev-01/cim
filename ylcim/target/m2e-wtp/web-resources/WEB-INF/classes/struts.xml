@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <!-- 设置开发者模式 -->
+    <constant name="struts.devMode" value="false"/>
+    <!-- 设置主题 -->
+    <constant name="struts.ui.theme" value="simple"/>
+    <!-- 限制上传文件大小 -->
+    <constant name= "struts.multipart.maxSize" value="1048576000"/>
+    <!-- 上传文件临时目录 -->
+	<constant name="struts.multipart.saveDir" value="D://DawnWing SoftWare//temp//"/>
+	<!-- <constant name="struts.multipart.saveDir" value="D://Myit SoftWare//temp//"/> -->
+    <!-- 动态方法调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <!-- 配置struts的访问后缀名 -->
+    <constant name="struts.action.extension" value="action,jpg,,"/>
+    
+    <constant name="struts.action.excludePattern" value="/static/.*?" />
+
+	<!-- Base Package Setting -->
+    <package name="basePackage" namespace="/" extends="struts-default">
+        <!-- struts2.5 为了提升安全性, 添加了 allomethod 这么个玩意-->
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+    </package>
+    
+    <!-- WeChat Setting 微信 -->
+    <package name="wechat" namespace="/wechat" extends="struts-default">
+        <!-- struts2.5 为了提升安全性, 添加了 allomethod 这么个玩意-->
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+    </package>
+    
+    <include file="struts/**/*-struts.xml"/>
+</struts>

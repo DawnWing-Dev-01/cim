@@ -1,0 +1,50 @@
+.phenix-tip-success{width: 32px; height:32px; background: url('../share/tip-success.gif')}
+.phenix-tip-info{width: 32px; height:32px; background: url('../share/tip-info.gif')}
+.phenix-tip-question{width: 32px; height:32px; background: url('../share/tip-question.gif')}
+.phenix-tip-warning{width: 32px; height:32px; background: url('../share/tip-warning.gif')}
+.phenix-tip-error{width: 32px; height:32px; background: url('../share/tip-error.gif')}
+
+.phenix-icon-add{background:url('../share/add.png') no-repeat;}
+.phenix-icon-edit{background:url('../share/edit.png') no-repeat;}
+.phenix-icon-delete{background:url('../share/delete.png') no-repeat;}
+.phenix-icon-refresh{background:url('../share/refresh.png') no-repeat;}
+.phenix-icon-reset{background:url('../share/reset.png') no-repeat;}
+.phenix-icon-auth{background:url('../share/auth.png') no-repeat;}
+.phenix-icon-search{background:url('../share/search.png') no-repeat;}
+.phenix-icon-user-search{background:url('../share/user-search.png') no-repeat;}
+.phenix-icon-clear{background:url('../share/clear.png') no-repeat;}
+.phenix-icon-backup{background:url('../share/backup.png') no-repeat;}
+.phenix-icon-export{background:url('../share/export.png') no-repeat;}
+.phenix-icon-import{background:url('../share/import.png') no-repeat;}
+.phenix-icon-refresh{background:url('../share/refresh.png') no-repeat;}
+.phenix-icon-template{background:url('../share/template.png') no-repeat;}
+.phenix-icon-clone{background:url('../share/clone.png') no-repeat;}
+.phenix-icon-yulan{background:url('../share/yulan.png') no-repeat;}
+.phenix-icon-fabu{background:url('../share/fabu.png') no-repeat;}
+.phenix-icon-back{background:url('../share/back.ico') no-repeat;}
+.phenix-icon-date{background:url('../share/date.png') no-repeat;}
+
+/*  */
+.icon-tishi{background:url('../share/icon-tishi.png') no-repeat; width: 16px; height: 16px; display: inline-block; }
+
+.nav-menu {
+	display: block;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	border-bottom: 1px solid #D2D2D2;
+	padding: 8px 0px 8px 0px;
+}
+
+.nav-menu .child-cls {
+	float: left;
+	width: 32px;
+	height: 32px;
+	margin-left: 20px;
+}
+
+.nav-menu .child-title {
+	float: left;
+	height: 32px;
+	margin-left: 10px;
+}

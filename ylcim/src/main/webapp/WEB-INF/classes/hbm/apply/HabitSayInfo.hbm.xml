@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.HabitSayInfo" table="APPLY_HABIT_SAY">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="userId" type="java.lang.String">
+				<column name="USER_ID" length="32" />
+			</property>
+			
+			<property name="sayDetail" type="java.lang.String">
+				<column name="SAY_DETAIL" length="255" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+		</class>
+	</hibernate-mapping>

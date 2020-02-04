@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.system.entity.SystemConstant" table="SYS_CONSTANT">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="scKey" type="java.lang.String">
+				<column name="SC_KEY" length="100" />
+			</property>
+			
+			<property name="scVal" type="java.lang.String">
+				<column name="SC_VAL" length="512" />
+			</property>
+			
+			<property name="scGroup" type="java.lang.String">
+				<column name="SC_GROUP" length="50" />
+			</property>
+			
+			<property name="isInit" type="java.lang.Integer">
+				<column name="IS_INIT" />
+			</property>
+			
+			<property name="sort" type="java.lang.Integer">
+				<column name="SORT" />
+			</property>
+	        
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

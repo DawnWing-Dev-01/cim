@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+html,body{
+	font-family: NSimSun;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Chrome/Safari/Opera */
+	-khtml-user-select: none; /* Konqueror */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently not supported by any browser */
+}
+.month-container{
+	text-align: center;
+	padding: 35px 20px 0px 0px;
+}
+.month-container .month-item{
+	display: inline-block;
+	width: 23%;
+	height: 200px;
+	line-height: 200px;
+	border: 1px solid #CCCCCC;
+	border-radius: 20px;
+	margin: 15px 0px 0px 10px;
+	cursor: pointer;
+	font-size: 30px;
+	font-weight: 600;
+	position: relative;
+}
+.month-container .month-item label {
+	cursor: pointer;
+}
+.month-container .month-item:hover{
+	background: #03c788;
+	color: #FFFFFF;
+}
+.month-container .month-item:hover .opt-area a,
+		.month-container .month-item:hover .opt-area span{
+	color: #FFFFFF;
+}
+.month-container .month-item .opt-area{
+	position: absolute;
+    bottom: 30px;
+    left: 0px;
+    width: 100%;
+    line-height: 0px;
+    font-size: 18px;
+}
+.month-container .month-item .opt-area a{
+	color: #666666;
+}
+.month-container .month-item .opt-area .fabu{
+	m
+}

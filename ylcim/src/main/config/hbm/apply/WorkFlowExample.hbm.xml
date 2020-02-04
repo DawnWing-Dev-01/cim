@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.WorkFlowExample" table="APPLY_FLOW_EXAMPLE">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<version name="version" type="java.lang.Integer">
+				<column name="VERSION"></column>
+			</version>
+			
+			<property name="businessId" type="java.lang.String">
+				<column name="BUSINESS_ID" length="32" />
+			</property>
+			
+			<property name="flowNodeId" type="java.lang.String">
+				<column name="FLOW_NODE_ID" length="32" />
+			</property>
+			
+			<property name="flowNodeCode" type="java.lang.String">
+				<column name="FLOW_NODE_CODE" length="20" />
+			</property>
+			
+			<property name="handleMode" type="java.lang.Integer">
+				<column name="HANDLE_MODE" />
+			</property>
+			
+			<property name="subjectId" type="java.lang.String">
+				<column name="SUBJECT_ID" length="32" />
+			</property>
+			
+			<property name="exampleType" type="java.lang.String">
+				<column name="EXAMPLE_TYPE" length="20" />
+			</property>
+			
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

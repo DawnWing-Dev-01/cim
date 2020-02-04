@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.system.entity.RoleMenu" table="SYS_ROLE_MENU">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="roleId" type="java.lang.String">
+				<column name="ROLE_ID" length="32" />
+			</property>
+			
+			<property name="menuId" type="java.lang.String">
+				<column name="MENU_ID" length="32" />
+			</property>
+			
+			<property name="isInit" type="java.lang.Integer">
+				<column name="IS_INIT" />
+			</property>
+		</class>
+	</hibernate-mapping>

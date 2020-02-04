@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="attachAction" extends="basePackage">
+        <action name="attachAction" class="com/dxr/system/attachAction">
+        	<result name="index">/view/console/module/system/attach/attach.jsp</result>
+        </action>
+    </package>
+
+</struts>

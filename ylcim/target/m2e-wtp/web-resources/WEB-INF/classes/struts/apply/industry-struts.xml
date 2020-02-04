@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.IndustryAction" extends="basePackage">
+        <action name="industryAction" class="com/dxr/apply/industryAction">
+        	<result name="index">/view/console/module/apply/industry/industry.jsp</result>
+        	<result name="formView">/view/console/module/apply/industry/form.jsp</result>
+        	<result name="thresholdView">/view/console/module/apply/industry/threshold.jsp</result>
+        </action>
+    </package>
+
+</struts>

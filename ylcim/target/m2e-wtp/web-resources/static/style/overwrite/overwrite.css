@@ -1,0 +1,19 @@
+a:focus {
+	outline-style:none; 
+	-moz-outline-style: none;
+}
+
+/* 重写/覆盖easyui基础的css样式 */
+.tree-icon{
+	background: none;
+	margin-top: 1px;
+}
+.l-btn-icon, .panel-icon, .tree-icon, .tabs-icon, .panel-icon{
+	font-size: 16px;
+}
+.l-btn-left{
+	color: #404040;
+}
+.l-btn-left:hover{
+	color: F09090;
+}

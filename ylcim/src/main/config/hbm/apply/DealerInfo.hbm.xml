@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.DealerInfo" table="APPLY_DEALER">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="name" type="java.lang.String">
+				<column name="NAME" length="100" />
+			</property>
+			
+			<property name="simpleName" type="java.lang.String">
+				<column name="SIMPLE_NAME" length="150" />
+			</property>
+			
+			<property name="industryId" type="java.lang.String">
+				<column name="INDUSTRY_ID" length="32" />
+			</property>
+			
+			<property name="dealerTypeId" type="java.lang.String">
+				<column name="DEALER_TYPE_ID" length="32" />
+			</property>
+			
+			<property name="legalPerson" type="java.lang.String">
+				<column name="LEGAL_PERSON" length="50" />
+			</property>
+			
+			<property name="mainProject" type="java.lang.String">
+				<column name="MAIN_PROJECT" length="512" />
+			</property>
+			
+			<property name="dealerAddress" type="java.lang.String">
+				<column name="DEALER_ADDRESS" length="512" />
+			</property>
+			
+			<property name="registerAddress" type="java.lang.String">
+				<column name="REGISTER_ADDRESS" length="512" />
+			</property>
+			
+			<property name="licenseNo" type="java.lang.String">
+				<column name="LICENSE_NO" length="100" />
+			</property>
+			
+			<property name="linkTel" type="java.lang.String">
+				<column name="LINK_TEL" length="20" />
+			</property>
+			
+			<property name="jurisdiction" type="java.lang.String">
+				<column name="JURISDICTION" length="32" />
+			</property>
+			
+			<property name="qrcode" type="java.lang.String">
+				<column name="QRCODE" length="32" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="sort" type="java.lang.Integer">
+				<column name="SORT" />
+			</property>
+	        
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

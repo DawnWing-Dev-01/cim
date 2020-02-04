@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.system.entity.Organization" table="SYS_ORG">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="fatherId" type="java.lang.String">
+				<column name="FATHER_ID" length="32" />
+			</property>
+			
+			<property name="name" type="java.lang.String">
+				<column name="NAME" length="50" />
+			</property>
+			
+			<property name="code" type="java.lang.String">
+				<column name="CODE" length="30" />
+			</property>
+			
+			<property name="indexNum" type="java.lang.String">
+				<column name="INDEX_NUM" length="100" />
+			</property>
+			
+			<property name="icon" type="java.lang.String">
+				<column name="ICON" length="20"/>
+			</property>
+			
+			<property name="isLeaf" type="java.lang.Integer">
+				<column name="IS_LEAF" />
+			</property>
+			
+			<property name="isInit" type="java.lang.Integer">
+				<column name="IS_INIT" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="sort" type="java.lang.Integer">
+				<column name="SORT" />
+			</property>
+	        
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

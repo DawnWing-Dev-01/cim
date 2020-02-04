@@ -1,0 +1,52 @@
+/* 重写/覆盖easyui基础的css样式 */
+a:focus {
+	outline-style:none; 
+	-moz-outline-style: none;
+}
+.tree-icon{
+	background: none;
+	margin-top: 1px;
+}
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'strawberryicon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.l-btn-icon, .panel-icon, .tree-icon, .tabs-icon, 
+		.panel-icon, .menu-icon, .item-icon{
+	font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.item-icon{
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.l-btn-left{
+	color: #404040;
+}
+.l-btn-left:hover{
+	color: F09090;
+}
+.searchbox .l-btn-text,
+		.searchbox .l-btn-icon,
+		.messager-button .l-btn-text{
+	color: #FFFFFF;
+}
+
+.datagrid-row-selected div,
+		.datagrid-row-selected a {
+	color: #FFFFFF !important;
+}
+.datagrid-header, .datagrid-td-rownumber div{
+	color: #404040 !important;
+}

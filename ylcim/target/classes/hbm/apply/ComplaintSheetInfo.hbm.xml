@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.ComplaintSheetInfo" table="APPLY_COMPLAINT_SHEET">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="complaintCode" type="java.lang.String">
+				<column name="COMPLAINT_CODE" length="100" />
+			</property>
+			
+			<property name="informerName" type="java.lang.String">
+				<column name="INFORMER_NAME" length="20" />
+			</property>
+			
+			<property name="informerGender" type="java.lang.Integer">
+				<column name="INFORMER_GENDER" />
+			</property>
+			
+			<property name="informerAge" type="java.lang.Integer">
+				<column name="INFORMER_AGE" />
+			</property>
+			
+			<property name="informerAddress" type="java.lang.String">
+				<column name="INFORMER_ADDRESS" length="150" />
+			</property>
+			
+			<property name="informeriPhone" type="java.lang.String">
+				<column name="INFORMER_IPHONE" length="20" />
+			</property>
+			
+			<property name="complaintType" type="java.lang.String">
+				<column name="COMPLAINT_TYPE" length="10" />
+			</property>
+			
+			<property name="informerWeChatOpenId" type="java.lang.String">
+				<column name="INFORMER_WECHAT_OPENID" length="50" />
+			</property>
+			
+			<property name="dealerId" type="java.lang.String">
+				<column name="DEALER_ID" length="32" />
+			</property>
+			
+			<property name="dealerName" type="java.lang.String">
+				<column name="DEALER_NAME" length="100" />
+			</property>
+			
+			<property name="dealerLinkman" type="java.lang.String">
+				<column name="DEALER_LINKMAN" length="20" />
+			</property>
+			
+			<property name="dealerAddress" type="java.lang.String">
+				<column name="DEALER_ADDRESS" length="150" />
+			</property>
+			
+			<property name="dealeriPhone" type="java.lang.String">
+				<column name="DEALER_IPHONE" length="20" />
+			</property>
+			
+			<property name="dealerJurisdiction" type="java.lang.String">
+				<column name="DEALER_JURISDICTION" length="50" />
+			</property>
+			
+			<property name="complaintReason" type="java.lang.String">
+				<column name="COMPLAINT_REASON" length="2048" />
+			</property>
+			
+			<property name="registerUnit" type="java.lang.String">
+				<column name="REGISTER_UNIT" length="50" />
+			</property>
+			
+			<property name="reporterId" type="java.lang.String">
+				<column name="REPORTER_ID" length="32" />
+			</property>
+			
+			<property name="complaintSource" type="java.lang.String">
+				<column name="COMPLAINT_SOURCE" length="15" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="flowStatus" type="java.lang.String">
+				<column name="FLOW_STATUS" length="30" />
+			</property>
+			
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="isPublicity" type="java.lang.Integer">
+				<column name="IS_PUBLICITY" />
+			</property>
+			
+			<property name="reportClassify" type="java.lang.Integer">
+				<column name="REPORT_CLASSIFY" />
+			</property>
+		</class>
+	</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="menuAction" extends="basePackage">
+        <action name="menuAction" class="com/dxr/system/menuAction">
+        	<result name="index">/view/console/module/system/menu/menu.jsp</result>
+        	<result name="formView">/view/console/module/system/menu/form.jsp</result>
+        </action>
+    </package>
+
+</struts>

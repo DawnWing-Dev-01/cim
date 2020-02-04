@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!--加载配置文件-->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:zOther/*.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+	<!-- <context:property-placeholder location="classpath:zOther/jdbc.properties"/> -->
+	
+	<!--配置数据源-->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
+      <!-- 基本属性 url、user、password -->
+      <property name="url" value="${jdbc.url}" />
+      <property name="username" value="${jdbc.username}" />
+      <property name="password" value="${jdbc.password}" />
+        
+      <!-- 配置初始化大小、最小、最大 -->
+      <property name="initialSize" value="1" />
+      <property name="minIdle" value="1" /> 
+      <property name="maxActive" value="20" />
+   
+      <!-- 配置获取连接等待超时的时间 -->
+      <property name="maxWait" value="60000" />
+   
+      <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+      <property name="timeBetweenEvictionRunsMillis" value="60000" />
+   
+      <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+      <property name="minEvictableIdleTimeMillis" value="300000" />
+    
+      <property name="validationQuery" value="SELECT 'x'" />
+      <property name="testWhileIdle" value="true" />
+      <property name="testOnBorrow" value="false" />
+      <property name="testOnReturn" value="false" />
+   
+      <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+      <property name="poolPreparedStatements" value="true" />
+      <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+   
+      <!-- 配置监控统计拦截的filters -->
+      <property name="filters" value="${druid.filters}" />
+      
+      <property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${druid.publickey}" />
+  </bean>
+	
+	<!--配置spring管理事务-->
+	<!-- org.springframework.orm.hibernate3.LocalSessionFactoryBean -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.current_session_context_class">
+					org.springframework.orm.hibernate4.SpringSessionContext
+				</prop>
+				<!-- 开启查询缓存 -->
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<!-- 开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<!-- 高速缓存提供程序 --> 
+				<!-- 由于spring也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->
+				<prop key="hibernate.cache.region.factory_class">
+				     org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+				</prop>
+				
+			</props>
+		</property>
+		
+		<!-- 自动扫描注解方式配置的hibernate类文件 -->
+		<!-- 
+        <property name="packagesToScan">  
+            <list>  
+                <value>com.dawn.*.entity.*</value>
+            </list>  
+        </property>
+  		-->
+        <!-- 自动扫描hbm方式配置的hibernate文件和.hbm文件 -->  
+        <property name="mappingDirectoryLocations">  
+            <list>  
+                <value>classpath:hbm/</value>  
+            </list>  
+        </property>
+		<!-- hibernate4中LocalSessionFactoryBean去除了lobHandler属性, 解释如下： -->
+		<!-- 
+			我们通常依赖于原生Hibernate 4比以前更多的方式（使用Hibernate 3）。
+			因此，对于LOB访问，我们推荐使用原生Hibernate类型（例如org.hibernate.type.MaterializedClobType），
+			而不是Spring的Hibernate 3支持提供的以前的用户类型（DefaultLobHandler）。
+			使用Hibernate 4和现代JDBC驱动程序（例如Oracle 10g甚至JDBC 4驱动程序），您不应该再需要Spring的LobHandler机制。
+			简而言之，请尝试用本地Hibernate CLOB类型替换您的Spring用户类型。有关它们对CLOB访问的支持的详细信息，请参阅Hibernate文档。
+		 -->
+		<!-- <property name="lobHandler" ref="lobHandler"/> -->
+	</bean>
+	
+	<!-- LOB配置 -->
+	<!-- <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" /> -->
+	
+	<!--配置申明事务管理(使用注解的方式)-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!--采用注解管理事务-->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<!--事务AOP配置,这里先注释啦，如果你不知道是什么可以去搜怎么配置，这里我们暂时不用配-->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+	    <tx:attributes>
+	        <tx:method name="save*" propagation="REQUIRED"/>
+	        <tx:method name="add*" propagation="REQUIRED"/>
+	        <tx:method name="insert*" propagation="REQUIRED"/>
+	        <tx:method name="create*" propagation="REQUIRED"/>
+	        <tx:method name="generate*" propagation="REQUIRED"/>
+	        <tx:method name="update*" propagation="REQUIRED"/>
+	        <tx:method name="modify*" propagation="REQUIRED"/>
+	        <tx:method name="delete*" propagation="REQUIRED"/>
+	        <tx:method name="remove*" propagation="REQUIRED"/>
+	        <tx:method name="upload*" propagation="REQUIRED"/>
+	        <tx:method name="verify*" propagation="REQUIRED"/>
+	        <tx:method name="*" read-only="true" />
+	    </tx:attributes>
+	</tx:advice>
+	
+	<aop:config proxy-target-class="true">
+	    <aop:pointcut id="daoPointcut" expression="execution(* com.dxr.*.service ..*.*(..))"/>
+	    <aop:advisor advice-ref="txAdvice" pointcut-ref="daoPointcut"/>
+	</aop:config>
+	
+	<!-- 该 BeanPostProcessor 将自动对标注 @Autowired 的 Bean 进行注入 -->     
+  	<bean id="beanPostProcessor" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>  
+	
+	<!-- 基础Dao -->
+	<bean id="basalDao" class="com.dawnwing.framework.supers.dao.impl.BasalDao"></bean>
+	
+	<!-- spring工具类 -->
+	<bean id="springUtils" class="com.dawnwing.framework.utils.SpringUtils"></bean>
+	
+	<import resource="classpath:spring/**/*-bean.xml" />
+	<import resource="classpath:spring/**/spring-*.xml" />
+	
+	<!-- <import resource="classpath:spring/quartz-scheduler.xml" /> -->
+</beans>

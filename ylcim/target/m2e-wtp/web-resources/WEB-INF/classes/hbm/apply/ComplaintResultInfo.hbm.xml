@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.ComplaintResultInfo" table="APPLY_COMPLAINT_RESULT">
+			<cache usage="nonstrict-read-write"/>
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="originTypeId" type="java.lang.String">
+				<column name="ORIGIN_TYPE_ID" length="32" />
+			</property>
+			
+			<property name="dealerId" type="java.lang.String">
+				<column name="DEALER_ID" length="32" />
+			</property>
+			
+			<property name="isPublicity" type="java.lang.Integer">
+				<column name="IS_PUBLICITY" />
+			</property>
+			
+			<property name="enterCode" type="java.lang.String">
+				<column name="ENTER_CODE" length="50" />
+			</property>
+			
+			<property name="providerName" type="java.lang.String">
+				<column name="PROVIDER_NAME" length="20" />
+			</property>
+			
+			<property name="complaints" type="java.lang.String">
+				<column name="COMPLAINTS" length="1024" />
+			</property>
+			
+			<property name="enterDate" type="java.util.Date">
+				<column name="ENTER_DATE" />
+			</property>
+			
+			<property name="complaintType" type="java.lang.String">
+				<column name="COMPLAINT_TYPE" length="10" />
+			</property>
+			
+			<property name="handleStatus" type="java.lang.String">
+				<column name="HANDLE_STATUS" length="20" />
+			</property>
+			
+			<property name="enterDept" type="java.lang.String">
+				<column name="ENTER_DEPT" length="50" />
+			</property>
+			
+			<property name="handleDept" type="java.lang.String">
+				<column name="HANDLE_DEPT" length="50" />
+			</property>
+			
+			<property name="handleDeadline" type="java.util.Date">
+				<column name="HANDLE_DEADLINE" />
+			</property>
+			
+			<property name="netCreatedate" type="java.util.Date">
+				<column name="NET_CREATE_DATE" />
+			</property>
+			
+			<property name="netRemark" type="java.lang.String">
+				<column name="NET_REMARK" length="1024" />
+			</property>
+			
+			<property name="netResult" type="java.lang.String">
+				<column name="NET_RESULT" length="1024" />
+			</property>
+			
+			<property name="finishKnot" type="java.lang.String">
+				<column name="FINISH_KNOT" length="1024" />
+			</property>
+			
+			<property name="finishKnotDate" type="java.util.Date">
+				<column name="FINISH_KNOT_DATE" />
+			</property>
+			
+			<property name="handlePeople" type="java.lang.String">
+				<column name="HANDLE_PEOPLE" length="20" />
+			</property>
+			
+			<property name="creator" type="java.lang.String">
+				<column name="CREATOR" length="50" />
+			</property>
+			
+			<property name="ext01" type="java.lang.String">
+				<column name="EXT_01" length="1024" />
+			</property>
+			<property name="ext02" type="java.lang.String">
+				<column name="EXT_02" length="1024" />
+			</property>
+			<property name="ext03" type="java.lang.String">
+				<column name="EXT_03" length="1024" />
+			</property>
+			<property name="ext04" type="java.lang.String">
+				<column name="EXT_04" length="1024" />
+			</property>
+			<property name="ext05" type="java.lang.String">
+				<column name="EXT_05" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

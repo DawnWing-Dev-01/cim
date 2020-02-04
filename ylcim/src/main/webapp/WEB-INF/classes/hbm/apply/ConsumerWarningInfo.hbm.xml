@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.ConsumerWarningInfo" table="APPLY_CONSUMER_WARNING">
+			<cache usage="nonstrict-read-write"/>
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="ewTitle" type="java.lang.String">
+				<column name="EW_TITLE" length="100" />
+			</property>
+			
+			<property name="ewDate" type="java.util.Date">
+				<column name="EW_DATE" />
+			</property>
+			
+			<property name="ewContent" type="java.lang.String">
+				<column name="EW_CONTENT" length="1024" />
+			</property>
+			
+			<property name="industryId" type="java.lang.String">
+				<column name="INDUSTRY_ID" length="32" />
+			</property>
+			
+			<property name="ewAuthor" type="java.lang.String">
+				<column name="EW_AUTHOR" length="50" />
+			</property>
+			
+			<property name="starShowDate" type="java.util.Date">
+				<column name="STAR_SHOW_DATE" />
+			</property>
+			
+			<property name="endShowDate" type="java.util.Date">
+				<column name="END_SHOW_DATE" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

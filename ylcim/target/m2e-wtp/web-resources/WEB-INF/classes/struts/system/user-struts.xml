@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="userAction" extends="basePackage">
+        <action name="userAction" class="com/dxr/system/userAction">
+        	<result name="index">/view/console/module/system/user/user.jsp</result>
+        	<result name="formView">/view/console/module/system/user/form.jsp</result>
+        	<result name="showInfoView">/view/console/module/system/user/showform.jsp</result>
+        	<result name="chooseView">/view/console/module/system/user/choose.jsp</result>
+        </action>
+    </package>
+
+</struts>

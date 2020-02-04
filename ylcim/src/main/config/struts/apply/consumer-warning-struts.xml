@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.ConsumerWarningAction" extends="basePackage">
+        <action name="consumerWarningAction" class="com/dxr/apply/consumerWarningAction">
+        	<result name="index">/view/console/module/apply/warning/warning.jsp</result>
+        	<result name="formView">/view/console/module/apply/warning/form.jsp</result>
+        	<result name="historyView">/view/console/module/apply/warning/history.jsp</result>
+        </action>
+    </package>
+
+</struts>

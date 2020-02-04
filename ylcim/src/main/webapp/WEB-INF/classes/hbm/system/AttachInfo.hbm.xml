@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<hibernate-mapping>
+		<class name="com.dxr.system.entity.AttachInfo" table="SYS_ATTACH">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			<property name="attachType" type="java.lang.String">
+				<column name="ATTACH_TYPE" length="20" />
+			</property>
+	
+			<property name="attachName" type="java.lang.String">
+				<column name="ATTACH_NAME" length="100" />
+			</property>
+	
+			<property name="attachSize" type="java.lang.Float">
+				<column name="ATTACH_SIZE" />
+			</property>
+	
+			<property name="fileType" type="java.lang.String">
+				<column name="FILE_TYPE" length="50" />
+			</property>
+	
+			<property name="attachPath" type="java.lang.String">
+				<column name="ATTACH_PATH" length="255" />
+			</property>
+			
+			<property name="creatorId" type="java.lang.String">
+				<column name="CREATOR_ID" length="32" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+	
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+	
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="255" />
+			</property>
+		</class>
+	</hibernate-mapping>

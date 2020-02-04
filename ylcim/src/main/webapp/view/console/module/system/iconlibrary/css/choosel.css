@@ -1,0 +1,108 @@
+*{margin: 0;padding: 0;list-style: none;}
+
+ul, ol { list-style: none; }
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.main {
+  padding: 30px 100px;
+width: 960px;
+margin: 0 auto;
+}
+.main h1{font-size:36px; color:#333; text-align:left;margin-bottom:30px; border-bottom: 1px solid #eee;}
+
+.helps{margin-top:40px;}
+.helps pre{
+  padding:20px;
+  margin:10px 0;
+  border:solid 1px #e7e1cd;
+  background-color: #fffdef;
+  overflow: auto;
+}
+
+.icon_lists{
+  width: 100% !important;
+
+}
+
+.icon_lists li{
+  float:left;
+  width: 100px;
+  height:120px;
+  text-align: center;
+  list-style: none !important;
+  cursor: pointer;
+}
+.icon_lists .icon{
+  font-size: 42px;
+  line-height: 100px;
+  margin: 10px 0;
+  color:#333;
+  -webkit-transition: font-size 0.25s ease-out 0s;
+  -moz-transition: font-size 0.25s ease-out 0s;
+  transition: font-size 0.25s ease-out 0s;
+
+}
+.icon_lists .icon:hover{
+  font-size: 100px;
+}
+
+.markdown {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.highlight {
+  line-height: 1.5;
+}
+
+.markdown img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+.markdown > p,
+.markdown > blockquote,
+.markdown > .highlight,
+.markdown > ol,
+.markdown > ul {
+  width: 80%;
+}
+
+.markdown ul > li {
+  list-style: circle;
+}
+
+.markdown > ul li,
+.markdown blockquote ul > li {
+  margin: 10px 0px 0px 10px;
+  border: 1px #FFF solid;
+}
+.icon_lists li.onclick{
+	border-color: #d81e06;
+}
+.icon_lists li.onclick .icon{
+	color: #d81e06;
+}
+.markdown > ul li p,
+.markdown > ol li p {
+  margin: 0.6em 0;
+}
+.markdown .fontclass{
+	height: 21px;
+	line-height: 21px;
+	overflow: hidden;
+}
+
+[class^="czs-"], [class*=" czs-"] {
+    font-family: 'strawberryicon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

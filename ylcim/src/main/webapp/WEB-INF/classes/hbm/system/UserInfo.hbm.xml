@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.system.entity.UserInfo" table="SYS_USER">
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="name" type="java.lang.String">
+				<column name="NAME" length="50" />
+			</property>
+			
+			<property name="username" type="java.lang.String">
+				<column name="USERNAME" length="32" />
+			</property>
+			
+			<property name="password" type="java.lang.String">
+				<column name="PASSWORD" length="32" />
+			</property>
+			
+			<property name="gender" type="java.lang.Integer">
+				<column name="GENDER" />
+			</property>
+			
+			<property name="orgId" type="java.lang.String">
+				<column name="ORG_ID" length="32" />
+			</property>
+			
+			<property name="birthday" type="java.util.Date">
+				<column name="BIRTHDAY" />
+			</property>
+			
+			<property name="iphone" type="java.lang.String">
+				<column name="IPHONE" length="20" />
+			</property>
+			
+			<property name="mobile" type="java.lang.String">
+				<column name="MOBILE" length="11" />
+			</property>
+			
+			<property name="wechatOpenId" type="java.lang.String">
+				<column name="WECHAT_OPENID" length="50" />
+			</property>
+			
+			<property name="address" type="java.lang.String">
+				<column name="ADDRESS" length="255" />
+			</property>
+			
+			<property name="isInit" type="java.lang.Integer">
+				<column name="IS_INIT" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="sort" type="java.lang.Integer">
+				<column name="SORT" />
+			</property>
+	        
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

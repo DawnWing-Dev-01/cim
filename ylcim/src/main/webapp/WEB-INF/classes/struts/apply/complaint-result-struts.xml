@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.ComplaintResultAction" extends="basePackage">
+        <action name="complaintResultAction" class="com/dxr/apply/complaintResultAction">
+        	<result name="index">/view/console/module/apply/compresult/result.jsp</result>
+        	<result name="formView">/view/console/module/apply/compresult/form.jsp</result>
+        	<result name="importView">/view/console/module/apply/compresult/import.jsp</result>
+        	<result name="exportView">/view/console/module/apply/compresult/export.jsp</result>
+        	<result name="linkedPublicityView">/view/console/module/apply/compresult/linkedPublicity.jsp</result>
+        </action>
+    </package>
+
+</struts>

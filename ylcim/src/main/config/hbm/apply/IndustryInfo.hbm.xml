@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+		<class name="com.dxr.apply.entity.IndustryInfo" table="APPLY_INDUSTRY">
+			<cache usage="nonstrict-read-write"/>
+			<id name="id" type="java.lang.String">
+				<column name="ID" length="32" />
+				<generator class="uuid" />
+			</id>
+			
+			<property name="name" type="java.lang.String">
+				<column name="NAME" length="100" />
+			</property>
+			
+			<property name="code" type="java.lang.String">
+				<column name="CODE" length="30" />
+			</property>
+			
+			<property name="warningThreshold" type="java.lang.Integer">
+				<column name="WARNING_THRESHOLD" />
+			</property>
+			
+			<property name="createDate" type="java.util.Date">
+				<column name="CREATE_DATE" />
+			</property>
+			
+			<property name="updateDate" type="java.util.Date">
+				<column name="UPDATE_DATE" />
+			</property>
+			
+			<property name="sort" type="java.lang.Integer">
+				<column name="SORT" />
+			</property>
+	        
+			<property name="status" type="java.lang.Integer">
+				<column name="STATUS" />
+			</property>
+			
+			<property name="remark" type="java.lang.String">
+				<column name="REMARK" length="1024" />
+			</property>
+		</class>
+	</hibernate-mapping>

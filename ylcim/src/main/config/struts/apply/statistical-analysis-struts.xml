@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.StatisticalAnalysisAction" extends="basePackage">
+        <action name="statisticalAnalysisAction" class="com/dxr/apply/statisticalAnalysisAction">
+        	<result name="foryearView">/view/console/module/apply/statistical/yearstatistics.jsp</result>
+        	<result name="forindustryView">/view/console/module/apply/statistical/industrystatistics.jsp</result>
+        </action>
+    </package>
+
+</struts>

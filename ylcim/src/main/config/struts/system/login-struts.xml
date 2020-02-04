@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="loginAction" extends="basePackage">
+        <action name="loginAction" class="com/dxr/system/loginAction">
+        	<result name="index">/view/comm/login.jsp</result>
+        	<result name="homeIndex" type="redirectAction">
+        		<param name="actionName">./consoleAction!index</param>
+        	</result>
+        	<result name="gotoHome" type="redirectAction">
+        		<param name="actionName">./loginAction!showHome</param>
+        	</result>
+        	<result name="noAuth">/view/comm/noAuth.jsp</result>
+        </action>
+        
+        <action name="captcha" class="com/dxr/system/loginAction" method="newCaptcha">
+        	<result name="newCaptcha" type="stream">
+        		<!-- 设置响应的类型格式为图片格式 -->
+        		<param name="contentType">image/jpeg</param>
+        		<param name="inputName">captchaIs</param>
+        	</result>
+        </action>
+        
+        <action name="builderCaptcha" class="com/dxr/system/loginAction" method="builderCaptcha">
+        	<result name="builderCaptcha" type="stream">
+        		<!-- 设置响应的类型格式为图片格式 -->
+        		<param name="contentType">image/jpeg</param>
+        		<param name="inputName">captchaIs</param>
+        	</result>
+        </action>
+    </package>
+    
+</struts>

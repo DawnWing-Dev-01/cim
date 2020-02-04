@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 开启spring监控 -->
+	<bean id="druid-stat-interceptor"
+          class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor">
+    </bean>
+
+    <bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut"
+          scope="prototype">
+        <property name="patterns">
+            <list>
+                <value>com.dxr.*.service.impl.*</value>
+                <value> com.dxr.*.dao.*</value>
+            </list>
+        </property>
+    </bean>
+
+    <aop:config>
+        <aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut"/>
+    </aop:config>
+
+	<!-- 数据库操作工具类, 包含备份还原 -->
+	<bean id="simpleDataBaseUtils" class="com.dxr.comm.utils.SimpleDataBaseUtils" >
+		<property name="installDir" value="${database.install.dir}"></property>
+		<property name="serviceAddress" value="${database.service.address}"></property>
+		<property name="dbName" value="${database.dbname}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	
+	<!-- 创建二维码工厂类 -->
+	<bean id="qrCodeFactory" class="com.dawnwing.framework.qrcode.QRCodeFactory">
+		<property name="width" value="${dealer.qrcode.default.width}"></property>
+		<property name="height" value="${dealer.qrcode.default.height}"></property>
+	</bean>
+	
+	<!-- 系统常量缓存bean -->
+	<bean id="scCache" class="com.dxr.comm.cache.SystemConstantCache">
+		<property name="constantCacheKey" value="${system.constant.cache.key}"></property>
+	</bean>
+
+</beans>

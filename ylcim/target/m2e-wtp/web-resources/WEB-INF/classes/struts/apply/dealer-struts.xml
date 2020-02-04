@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.DealerAction" extends="basePackage">
+        <action name="dealerAction" class="com/dxr/apply/dealerAction">
+        	<result name="index">/view/console/module/apply/dealer/dealer.jsp</result>
+        	<result name="formView">/view/console/module/apply/dealer/form.jsp</result>
+        	<result name="showQrCodeView">/view/console/module/apply/dealer/showQrCode.jsp</result>
+        	<result name="chooseView">/view/console/module/apply/dealer/choose.jsp</result>
+        	<result name="importView">/view/console/module/apply/dealer/import.jsp</result>
+        	<result name="searchView">/view/console/module/apply/dealer/dearlerSearch.jsp</result>
+        	<result name="searchform">/view/console/module/apply/dealer/search.jsp</result>
+        </action>
+    </package>
+
+</struts>

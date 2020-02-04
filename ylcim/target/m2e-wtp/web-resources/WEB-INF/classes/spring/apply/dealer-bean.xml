@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean name="com/dxr/apply/dealerAction" class="com.dxr.apply.action.DealerAction" scope="prototype"></bean>
+	
+	<bean id="dealerMgr" class="com.dxr.apply.service.impl.DealerMgr">
+		<property name="uploadRootPath" value="${upload.root.path}"></property>
+		<property name="wechatAppId" value="${wechat.cfg.appid}"></property>
+		<property name="authorizeCodeApiUrl" value="${wechat.api.authorize.code.url}"></property>
+		<property name="uploadTempPath" value="${upload.temp.path}"></property>
+		<property name="a4width" value="${dealer.qrcode.A4.width}"></property>
+		<property name="a4height" value="${dealer.qrcode.A4.height}"></property>
+	</bean>
+	
+	<bean id="dealerDao" class="com.dxr.apply.dao.DealerDao"></bean>
+</beans>

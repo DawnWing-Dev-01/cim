@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <package name="com.dxr.apply.action.WorkFlowAction" extends="basePackage">
+        <action name="workFlowAction" class="com/dxr/apply/workFlowAction">
+        	<result name="index">/view/console/module/apply/workFlow/workFlow.jsp</result>
+        	<result name="formView">/view/console/module/apply/workFlow/form.jsp</result>
+        </action>
+    </package>
+
+</struts>
