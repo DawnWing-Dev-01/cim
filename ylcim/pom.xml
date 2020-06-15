@@ -31,7 +31,7 @@
 		<jackson.version>2.7.3</jackson.version>
 		<shiro.version>1.3.2</shiro.version>
 		<ehcache.version>2.6.11</ehcache.version>
-		<collections.version>3.2.1</collections.version>
+		<collections.version>3.2.2</collections.version>
 		<quartz.version>2.2.1</quartz.version>
 	</properties>
 	
