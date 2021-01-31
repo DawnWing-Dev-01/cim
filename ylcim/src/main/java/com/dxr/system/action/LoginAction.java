@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dawnwing.framework.core.VerifyCodeUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
@@ -35,6 +36,7 @@ import com.dxr.comm.cache.SystemConstantCache;
 import com.dxr.comm.shiro.ShiroUser;
 import com.dxr.system.entity.UserInfo;
 import com.google.code.kaptcha.Producer;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * @description: <登录Action>
@@ -56,6 +58,8 @@ public class LoginAction extends BasalAction {
     private SystemConstantCache scCache;
 
     private String showCaptcha;
+    private Integer captchaWidth;
+    private Integer captchaHeight;
 
     private UserInfo userInfo;
 
@@ -188,7 +192,8 @@ public class LoginAction extends BasalAction {
         response.setHeader("Pragma", "no-cache");
 
         // create the text for the image 
-        String captcha = defaultKaptcha.createText();
+//        String captcha = defaultKaptcha.createText();
+        String captcha = VerifyCodeUtils.generateVerifyCode(4);
 
         // store the captcha text in the session
         Subject subject = SecurityUtils.getSubject();
@@ -199,19 +204,30 @@ public class LoginAction extends BasalAction {
         BufferedImage bi = defaultKaptcha.createImage(captcha);
         bi.flush();
 
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageOutputStream imOut = null;
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        ImageOutputStream imOut = null;
+//        try {
+//            imOut = ImageIO.createImageOutputStream(bos);
+//            ImageIO.write(bi, "jpg", imOut);
+//            captchaIs = new ByteArrayInputStream(bos.toByteArray());
+//        } catch (IOException e) {
+//            logger.error(
+//                    "create ImageOutputStream or ImageIO.write() is error...",
+//                    e);
+//        } finally {
+//            // 关闭所有的IO流
+//            IoUtils.unifyClose(imOut, bos);
+//        }
+        ByteArrayOutputStream bos = null;
         try {
-            imOut = ImageIO.createImageOutputStream(bos);
-            ImageIO.write(bi, "jpg", imOut);
+            bos = new ByteArrayOutputStream();
+            VerifyCodeUtils.outputImage(captchaWidth, captchaHeight, bos, captcha);
             captchaIs = new ByteArrayInputStream(bos.toByteArray());
         } catch (IOException e) {
-            logger.error(
-                    "create ImageOutputStream or ImageIO.write() is error...",
-                    e);
+            logger.error("write VerifyCode image io is error...", e);
         } finally {
             // 关闭所有的IO流
-            IoUtils.unifyClose(imOut, bos);
+            IoUtils.unifyClose(bos);
         }
         return "newCaptcha";
     }
@@ -346,5 +362,21 @@ public class LoginAction extends BasalAction {
 
     public void setShowCaptcha(String showCaptcha) {
         this.showCaptcha = showCaptcha;
+    }
+
+    public Integer getCaptchaWidth() {
+        return captchaWidth;
+    }
+
+    public void setCaptchaWidth(Integer captchaWidth) {
+        this.captchaWidth = captchaWidth;
+    }
+
+    public Integer getCaptchaHeight() {
+        return captchaHeight;
+    }
+
+    public void setCaptchaHeight(Integer captchaHeight) {
+        this.captchaHeight = captchaHeight;
     }
 }

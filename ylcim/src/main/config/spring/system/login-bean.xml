@@ -15,5 +15,7 @@
 
 	<bean name="com/dxr/system/loginAction" class="com.dxr.system.action.LoginAction" scope="prototype">
 		<property name="showCaptcha" value="${system.show.captcha.switch}"></property>
+		<property name="captchaWidth" value="${system.show.captcha.image-width}"></property>
+		<property name="captchaHeight" value="${system.show.captcha.image-height}"></property>
 	</bean>
 </beans>
