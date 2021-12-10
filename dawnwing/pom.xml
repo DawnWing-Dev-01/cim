@@ -19,7 +19,7 @@
 		<slf4j.version>1.5.10</slf4j.version>
 		<commons.codec.version>1.7</commons.codec.version>
 		<slf4j.version>1.7.18</slf4j.version>
-		<log4j.version>2.8</log4j.version>
+		<log4j.version>2.15.0</log4j.version>
 		<zxing.version>3.3.0</zxing.version>
 		<poi.version>3.17</poi.version>
 	</properties>
